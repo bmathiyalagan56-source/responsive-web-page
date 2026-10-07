@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Important for Responsive Web Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Web Design</title>
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            width: 100%;
+            background-color: #1e3a8a;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 7%;
+        }
+
+        nav h2 {
+            font-size: 25px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #93c5fd;
+        }
+
+
+        /* =========================
+           HOME SECTION
+        ========================= */
+
+        .home {
+            min-height: 500px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #1e3a8a
+            );
+
+            color: white;
+        }
+
+        .home-content {
+            max-width: 800px;
+        }
+
+        .home h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .home p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 28px;
+
+            background-color: white;
+            color: #1e3a8a;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #dbeafe;
+        }
+
+
+        /* =========================
+           ABOUT SECTION
+        ========================= */
+
+        .about {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #1e3a8a;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 850px;
+            margin: auto;
+
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            background-color: white;
+            padding: 70px 8%;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: #1e3a8a;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+
+            display: grid;
+
+            /* Laptop = 3 columns */
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background-color: #f4f7fb;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.1);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           DEVICES SECTION
+        ========================= */
+
+        .devices {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .devices h2 {
+            color: #1e3a8a;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .device-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .device {
+
+            background-color: white;
+
+            padding: 30px 20px;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .device-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .device h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background-color: #1e3a8a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+
+        /* =========================
+           TABLET
+           Screen <= 768px
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .home h1 {
+                font-size: 40px;
+            }
+
+            .home p {
+                font-size: 18px;
+            }
+
+            /* 3 columns → 2 columns */
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* 4 columns → 2 columns */
+
+            .device-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+           Screen <= 500px
+        ========================= */
+
+        @media (max-width: 500px) {
+
+            body {
+                width: 100%;
+            }
+
+            /* Navigation */
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 18px;
+            }
+
+            nav h2 {
+                font-size: 21px;
+            }
+
+            nav ul {
+
+                flex-direction: column;
+
+                text-align: center;
+
+                gap: 10px;
+            }
+
+
+            /* Home */
+
+            .home {
+
+                min-height: 450px;
+
+                padding: 40px 20px;
+            }
+
+            .home h1 {
+                font-size: 32px;
+            }
+
+            .home p {
+                font-size: 16px;
+            }
+
+
+            /* About */
+
+            .about {
+                padding: 50px 20px;
+            }
+
+            .about h2 {
+                font-size: 27px;
+            }
+
+            .about p {
+                font-size: 16px;
+            }
+
+
+            /* Features */
+
+            .features {
+                padding: 50px 20px;
+            }
+
+            .features h2 {
+                font-size: 27px;
+            }
+
+            /* 2 columns → 1 column */
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+
+            /* Devices */
+
+            .devices {
+                padding: 50px 20px;
+            }
+
+            .devices h2 {
+                font-size: 27px;
+            }
+
+            /* 2 columns → 1 column */
+
+            .device-container {
+                grid-template-columns: 1fr;
+            }
+
+            .device {
+                width: 100%;
+            }
+
+
+            /* Footer */
+
+            footer {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <h2>Responsive Web</h2>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#features">Features</a>
+            </li>
+
+            <li>
+                <a href="#devices">Devices</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h1>
+                Responsive Web Design
+            </h1>
+
+            <p>
+                One website that automatically adjusts
+                to mobile phones, tablets, laptops,
+                and desktop computers.
+            </p>
+
+            <a href="#about" class="button">
+                Learn More
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <h2>
+            What is Responsive Web Design?
+        </h2>
+
+        <p>
+            Responsive Web Design is a technique used
+            to create websites that automatically adjust
+            their layout according to the screen size
+            of the device. The same webpage can be
+            opened on a mobile phone, tablet, laptop,
+            or desktop computer.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="features" id="features">
+
+        <h2>
+            Benefits of Responsive Design
+        </h2>
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <h3>
+                    📱 Mobile Friendly
+                </h3>
+
+                <p>
+                    The website automatically adjusts
+                    to small mobile screens and remains
+                    easy to use.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    💻 Laptop Friendly
+                </h3>
+
+                <p>
+                    The website uses the available
+                    screen space on laptops and
+                    computers.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    📲 Tablet Friendly
+                </h3>
+
+                <p>
+                    The layout automatically changes
+                    to provide a comfortable tablet
+                    experience.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DEVICES
+    ========================== -->
+
+    <section class="devices" id="devices">
+
+        <h2>
+            One Website - All Devices
+        </h2>
+
+        <div class="device-container">
+
+
+            <div class="device">
+
+                <div class="device-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile
+                </h3>
+
+                <p>
+                    Small screen
+                </p>
+
+            </div>
+
+
+            <div class="device">
+
+                <div class="device-icon">
+                    📲
+                </div>
+
+                <h3>
+                    Tablet
+                </h3>
+
+                <p>
+                    Medium screen
+                </p>
+
+            </div>
+
+
+            <div class="device">
+
+                <div class="device-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Laptop
+                </h3>
+
+                <p>
+                    Large screen
+                </p>
+
+            </div>
+
+
+            <div class="device">
+
+                <div class="device-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Desktop
+                </h3>
+
+                <p>
+                    Extra large screen
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Responsive Web Design
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
